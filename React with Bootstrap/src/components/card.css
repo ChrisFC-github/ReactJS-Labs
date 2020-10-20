@@ -1,0 +1,22 @@
+.box {
+  margin: 1%;
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+}
+
+.grid {
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.grid > div {
+  display: absolute;
+  margin: 0 auto;
+  padding: 0.2%;
+}
+
+.cardIMG {
+  border-radius: 0.5rem;
+}
