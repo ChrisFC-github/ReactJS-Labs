@@ -15,9 +15,11 @@ class App extends Component {
 
     handleAddPost = () => {
         // const newChirp = this.setState({ inputText: this.state.inputText });
+        // this pulls the previous values or data in the savedChirps array PLUS the new state of the inputText in the text box
         this.setState({ savedChirps: [...this.state.savedChirps, this.state.inputText ]});
     }
 
+    // changes the state of the inputText to the current text in the box
     handleChange = (e) => this.setState({ inputText: e.target.value });
 
     render() {
