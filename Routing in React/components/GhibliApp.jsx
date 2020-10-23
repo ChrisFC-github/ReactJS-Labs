@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import PeoplePage from "./PeoplePage";
 import FilmPage from "./FilmPage";
+import FilmDetails from "./FilmDetails";
 import "./card.css";
 
 
@@ -24,8 +25,9 @@ class App extends Component {
             <Link to="/FilmPage"><button>Load Films</button></Link>
             <Link to="/PeoplePage"><button>Load People</button></Link>
             <Switch>
-            <Route exact path="/FilmPage" component={FilmPage}/>
-            <Route exact path="/PeoplePage" component={PeoplePage}/>
+            <Route path="/FilmPage" component={FilmPage}/>
+            <Route path="/PeoplePage" component={PeoplePage}/>
+            <Route exact path="/films/:id" component={FilmDetails} />
             </Switch>
           </div>
         </div>
