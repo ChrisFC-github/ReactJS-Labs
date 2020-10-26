@@ -6,8 +6,8 @@ import FilmDetails from "./FilmDetails";
 import "./card.css";
 
 const GhibliApp = () => {
-    return (
-      <Router>
+  return (
+    <Router>
       <Fragment>
         <div className="grid">
           <img
@@ -20,18 +20,24 @@ const GhibliApp = () => {
         </div>
         <div className="grid">
           <div className="button">
-            <Link to="/FilmPage"><button>Load Films</button></Link>
-            <Link to="/PeoplePage"><button>Load People</button></Link>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <Link to="/FilmPage">
+                <button>Load Films</button>
+              </Link>
+              <Link to="/PeoplePage">
+                <button>Load People</button>
+              </Link>
+            </div>
             <Switch>
-            <Route path="/FilmPage" component={FilmPage}/>
-            <Route path="/PeoplePage" component={PeoplePage}/>
-            <Route exact path="/films/:id/details" component={FilmDetails} />
+              <Route path="/FilmPage" component={FilmPage} />
+              <Route path="/PeoplePage" component={PeoplePage} />
+              <Route exact path="/films/:id/details" component={FilmDetails} />
             </Switch>
           </div>
         </div>
       </Fragment>
-      </Router>
-    );
-}
+    </Router>
+  );
+};
 
 export default GhibliApp;

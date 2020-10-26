@@ -21,15 +21,17 @@ const FilmPage = () => {
       <div>
         <Card className="box">
           <Card.Body>
-            <Card.Title>
-              <h1>{film.title}</h1>
+            <Card.Title style={{ display: "flex", justifyContent: "center" }}>
+            <h1>{film.title}</h1>
             </Card.Title>
-            <Card.Title>
-              <h1>Rotten Tomatoes Score: {film.rt_score}</h1>
+            <Card.Title style={{ display: "flex", justifyContent: "center" }}>
+            <h1>Rotten Tomatoes Score: {film.rt_score}</h1>
             </Card.Title>
-            <Link to={`/films/${film.id}/details`}>
-              <button className="btn btn-primary">More Details</button>
-            </Link>
+            <div style={{display: "flex", justifyContent: "center"}}>
+              <Link to={`/films/${film.id}/details`}>
+                <button className="btn btn-primary">More Details</button>
+              </Link>
+            </div>
           </Card.Body>
         </Card>
       </div>

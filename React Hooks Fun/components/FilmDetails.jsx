@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom'
+import { useParams } from "react-router-dom";
 import "./card.css";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const FilmDetails = () => {
-// let { id }  = useParams() //use this as simple way to get ID
+  // let { id }  = useParams() //use this as simple way to get ID
   const unfilteredurlId = window.location.pathname;
   const filteredurl1 = unfilteredurlId.replace("/films/", "");
   const filteredurl2 = filteredurl1.replace("/details", "");
@@ -15,10 +15,10 @@ const FilmDetails = () => {
 
   const [film, setdetailFilms] = useState([]);
   const getFilmdetails = async () => {
-      let resolve = await fetch(`https://ghibliapi.herokuapp.com/films/${urlId}`);
-      let detailfilms = await resolve.json();
-      setdetailFilms(detailfilms);
-    };
+    let resolve = await fetch(`https://ghibliapi.herokuapp.com/films/${urlId}`);
+    let detailfilms = await resolve.json();
+    setdetailFilms(detailfilms);
+  };
 
   useEffect(() => {
     getFilmdetails();
@@ -46,13 +46,16 @@ const FilmDetails = () => {
           <Card.Text>
             <h2>Producer: {film.producer}</h2>
           </Card.Text>
-          <Link to="/FilmPage"><button>Go back to Films</button></Link>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Link to="/FilmPage">
+              <button>Go back to Films</button>
+            </Link>
+          </div>
         </Card.Body>
       </Card>
     </div>
   );
   // });
-
-}
+};
 
 export default FilmDetails;
