@@ -1,28 +1,29 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom'
 import "./card.css";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const FilmDetails = () => {
+// let { id }  = useParams() //use this as simple way to get ID
   const unfilteredurlId = window.location.pathname;
   const filteredurl1 = unfilteredurlId.replace("/films/", "");
   const filteredurl2 = filteredurl1.replace("/details", "");
   const urlId = filteredurl2;
+  console.log(urlId);
   //used to retrieve the generated urlID from the route with text filters NOTE: THIS CAN BE UNNECESSARY IF I FOUND A BETTER WAY
 
-
-  const [detailfilms, setdetailFilms] = useState([]);
+  const [film, setdetailFilms] = useState([]);
   const getFilmdetails = async () => {
-    let resolve = await fetch(`https://ghibliapi.herokuapp.com/films/`);
-    let detailfilms = await resolve.json();
-    setdetailFilms(detailfilms);
-  };
+      let resolve = await fetch(`https://ghibliapi.herokuapp.com/films/${urlId}`);
+      let detailfilms = await resolve.json();
+      setdetailFilms(detailfilms);
+    };
 
   useEffect(() => {
     getFilmdetails();
   }, []); // [] creates a dependency preventing the useEffect from running an infinity loop
 
-  return detailfilms.map((film) => {
   return (
     <div>
       <Card className="box">
@@ -50,7 +51,7 @@ const FilmDetails = () => {
       </Card>
     </div>
   );
-  });
+  // });
 
 }
 
